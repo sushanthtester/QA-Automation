@@ -1,0 +1,105 @@
+
+
+
+
+
+
+
+
+
+
+
+import org.testng.annotations.Test;
+
+
+
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+
+import java.util.Properties;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.AfterSuite;
+
+public class AccountCreation {
+	WebDriver d1;
+	
+  @Test
+  public void guruloginsuccess() {
+			 d1.findElement(By.id("uid")).sendKeys("mngr40720");
+			 d1.findElement(By.id("password")).sendKeys("bugUtet");
+			 d1.findElement(By.id("btnLogin")).click();
+			 
+			 
+			 }
+		@Test
+		 public void Guruloginfailure() {
+			 d1.findElement(By.id("Email")).sendKeys("sushia939@gmail.com");
+			 d1.findElement(By.id("Email")).sendKeys("sushi");
+			 d1.findElement(By.id("signIn")).click();
+	 
+
+
+
+
+
+
+
+
+
+  @BeforeMethod
+  public void beforeMethod() {
+	 System.out.println("I am beforeMethod");
+      d1 = new ChromeDriver();
+      d1.get("www.guru99bank.com");
+  }
+
+  @AfterMethod
+  public void afterMethod() {
+	 System.out.println("I am afterMethod");
+	 d1.close();
+  }
+
+  @BeforeClass
+  public void beforeClass() {
+	 System.out.println("I am beforeClass");
+	 Properties props = System.getProperties();
+  	 props.setProperty("webdriver.chrome.driver", "C:\\eclipse\\Browser\\chromedriver.exe");
+  }
+
+  @AfterClass
+  public void afterClass() {
+	 System.out.println("I am afterClass");
+	 d1.close();
+  }
+
+  @BeforeTest
+  public void beforeTest() {
+	 System.out.println("I am beforeTest");
+  }
+
+  @AfterTest
+  public void afterTest() {
+	 System.out.println("I am afterTest");
+	 
+  }
+
+  @BeforeSuite
+  public void beforeSuite() {
+	 System.out.println("I am beforeSuite");
+  }
+
+  @AfterSuite
+  public void afterSuite() {
+	 System.out.println("I am afterSuite");
+	 
+  }
+
+}
